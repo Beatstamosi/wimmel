@@ -1,0 +1,47 @@
+.homeWrapper {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 5px;
+}
+
+.stepNumber {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-navbar-bg); /* or any accent color */
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.stepText {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--color-text-main);
+}
+
+.spotterCall {
+  font-weight: 600;
+  color: var(--color-text-main);
+  font-size: 1.2em;
+}
+
+@media (min-width: 769px) {
+  .homeWrapper {
+    padding: 50px 100px;
+  }
+}

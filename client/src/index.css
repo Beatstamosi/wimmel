@@ -5,12 +5,33 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #a75b5b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Primary Colors */
+  --color-navbar-bg: #d8272c; /* Waldo Red */
+  --color-navbar-text: #ffffff; /* White */
+
+  --color-button-primary-bg: #ff4081; /* Vibrant Pink */
+  --color-button-primary-text: #ffffff; /* White */
+
+  --color-button-hover-bg: #ffc107; /* Warm Amber */
+  --color-button-hover-text: #212121; /* Dark Charcoal */
+
+  /* Backgrounds */
+  --color-background: #f3e5f5; /* Soft Lavender */
+  --color-card-bg: #ffffff; /* White */
+
+  /* Text */
+  --color-text-main: #212121; /* Dark Charcoal */
+
+  /* Accents & Borders */
+  --color-accent: #00bcd4; /* Cyan */
+  --color-border: #b39ddb; /* Muted Purple */
 }
 
 a {
@@ -26,7 +47,7 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  place-items: center;
+  align-items: flex-start;
   min-width: 320px;
   min-height: 100vh;
 }
