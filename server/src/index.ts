@@ -3,8 +3,6 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import passport from "passport";
-import authRouter from "./routes/auth.js";
 import "./config/passport.js";
 
 // Give access to environment variables
@@ -17,9 +15,6 @@ const __dirname = path.dirname(__filename);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Initialize Passport
-app.use(passport.initialize());
-
 // Enable CORS only in dev
 if (process.env.NODE_ENV === "development") {
   app.use(
@@ -31,11 +26,8 @@ if (process.env.NODE_ENV === "development") {
   );
 }
 
-// Authentication Route
-app.use("/user", authRouter);
+// Routes
 
-// API route example
-app.get("/", (req, res) => res.render("index", { user: req.user }));
 
 // Serve static files in production
 if (process.env.NODE_ENV === "production") {
