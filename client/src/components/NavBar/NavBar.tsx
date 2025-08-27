@@ -13,7 +13,7 @@ function NavBar() {
       </div>
       <div className={style.containerBtnLeaderboards}>
         <Link to="/leaderboards">
-          <IoMdTrophy size="2em" color="white" />
+          <IoMdTrophy size="2em" color="white" className={style.trophyIcon}/>
         </Link>
       </div>
     </div>
