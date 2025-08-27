@@ -1,0 +1,124 @@
+.levelContainer {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 300px;
+  height: 470px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.levelContainer:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.levelName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 12px 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  text-align: center;
+}
+
+.levelDifficulty {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: var(--color-accent);
+}
+
+.levelArtist {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.levelArtist a {
+  color: var(--color-button-primary-bg);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.levelArtist a:hover {
+  color: var(--color-button-hover-bg);
+  text-decoration: underline;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.buttonPrimary {
+  background-color: var(--color-button-primary-bg);
+  color: var(--color-button-primary-text);
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.buttonPrimary:hover {
+  background-color: var(--color-button-hover-bg);
+  color: var(--color-button-hover-text);
+}
+
+.buttonSecondary {
+  background-color: transparent;
+  border: 2px solid var(--color-button-primary-bg);
+  color: var(--color-button-primary-bg);
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.buttonSecondary:hover {
+  background-color: var(--color-button-hover-bg);
+  color: var(--color-button-hover-text);
+  border-color: var(--color-button-hover-bg);
+}
+
+.difficultyBadge {
+  margin-top: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* Difficulty-specific colors */
+.easy {
+  background-color: #4caf50; /* Green */
+}
+
+.medium {
+  background-color: #ff9800; /* Orange */
+}
+
+.hard {
+  background-color: #f44336; /* Red */
+}

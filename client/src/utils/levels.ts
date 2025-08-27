@@ -1,43 +1,43 @@
-import friendlyMonsters from "../assets/Friendly Monsters/friendly_monsters.jpeg";
-import snail from "../assets/Friendly Monsters/friendly_monsters_char_1.png";
-import bear from "../assets/Friendly Monsters/friendly_monsters_char_2.png";
-import tanne from "../assets/Friendly Monsters/friendly_monsters_char_3.png";
-import capy from "../assets/Friendly Monsters/friendly_monsters_char_4.png";
-import bird from "../assets/Friendly Monsters/friendly_monsters_char_5.png";
+import friendlyMonsters from "../assets/Friendly_Monsters/friendly_monsters.jpeg";
+import snail from "../assets/Friendly_Monsters/friendly_monsters_char_1.png";
+import bear from "../assets/Friendly_Monsters/friendly_monsters_char_2.png";
+import tanne from "../assets/Friendly_Monsters/friendly_monsters_char_3.png";
+import capy from "../assets/Friendly_Monsters/friendly_monsters_char_4.png";
+import bird from "../assets/Friendly_Monsters/friendly_monsters_char_5.png";
 
-import whatIsNewYork from "../assets/What is New York?/what_is_new_york.webp";
-import jeff from "../assets/What is New York?/what_is_new_york_char_1.png";
-import pidgeon from "../assets/What is New York?/what_is_new_york_char_2.png";
-import racoon from "../assets/What is New York?/what_is_new_york_char_3.png";
-import tony from "../assets/What is New York?/what_is_new_york_char_4.png";
-import brian from "../assets/What is New York?/what_is_new_york_char_5.png";
+import whatIsNewYork from "../assets/What_is_New_York/what_is_new_york.webp";
+import jeff from "../assets/What_is_New_York/what_is_new_york_char_1.png";
+import pidgeon from "../assets/What_is_New_York/what_is_new_york_char_2.png";
+import racoon from "../assets/What_is_New_York/what_is_new_york_char_3.png";
+import tony from "../assets/What_is_New_York/what_is_new_york_char_4.png";
+import brian from "../assets/What_is_New_York/what_is_new_york_char_5.png";
 
-import bartonSprings from "../assets/Barton Springs/barton_springs.jpeg";
-import ryan from "../assets/Barton Springs/barton_springs_char_1.png";
-import meghan from "../assets/Barton Springs/barton_springs_char_2.png";
-import rolf from "../assets/Barton Springs/barton_springs_char_3.png";
-import sue from "../assets/Barton Springs/barton_springs_char_4.png";
-import brooklyn from "../assets/Barton Springs/barton_springs_char_5.png";
+import bartonSprings from "../assets/Barton_Springs/barton_springs.jpeg";
+import ryan from "../assets/Barton_Springs/barton_springs_char_1.png";
+import meghan from "../assets/Barton_Springs/barton_springs_char_2.png";
+import rolf from "../assets/Barton_Springs/barton_springs_char_3.png";
+import sue from "../assets/Barton_Springs/barton_springs_char_4.png";
+import brooklyn from "../assets/Barton_Springs/barton_springs_char_5.png";
 
-import dennys from "../assets/Denny's, Japan/dennys.jpeg";
-import bob from "../assets/Denny's, Japan/dennys_char_1.png";
-import zoey from "../assets/Denny's, Japan/dennys_char_2.png";
-import amelie from "../assets/Denny's, Japan/dennys_char_3.png";
-import gato from "../assets/Denny's, Japan/dennys_char_4.png";
-import louis from "../assets/Denny's, Japan/dennys_char_5.png";
+import dennys from "../assets/Dennys_Japan/dennys.jpeg";
+import bob from "../assets/Dennys_Japan/dennys_char_1.png";
+import zoey from "../assets/Dennys_Japan/dennys_char_2.png";
+import amelie from "../assets/Dennys_Japan/dennys_char_3.png";
+import gato from "../assets/Dennys_Japan/dennys_char_4.png";
+import louis from "../assets/Dennys_Japan/dennys_char_5.png";
 
-import artisticAvenue from "../assets/Artistic Avenues/artistic_avenue.jpeg";
-import zazou from "../assets/Artistic Avenues/artistic_avenue_char_1.png";
-import maya from "../assets/Artistic Avenues/artistic_avenue_char_2.png";
-import ross from "../assets/Artistic Avenues/artistic_avenue_char_3.png";
-import franky from "../assets/Artistic Avenues/artistic_avenue_char_4.png";
-import moelle from "../assets/Artistic Avenues/artistic_avenue_char_5.png";
+import artisticAvenue from "../assets/Artistic_Avenues/artistic_avenue.jpeg";
+import zazou from "../assets/Artistic_Avenues/artistic_avenue_char_1.png";
+import maya from "../assets/Artistic_Avenues/artistic_avenue_char_2.png";
+import ross from "../assets/Artistic_Avenues/artistic_avenue_char_3.png";
+import franky from "../assets/Artistic_Avenues/artistic_avenue_char_4.png";
+import moelle from "../assets/Artistic_Avenues/artistic_avenue_char_5.png";
 
-import battleOfWaldo from "../assets/Battle of Waldo/battle_of_waldo.jpeg";
-import waldo from "../assets/Battle of Waldo/battle_of_waldo_char_1.png";
-import wilma from "../assets/Battle of Waldo/battle_of_waldo_char_2.png";
-import wizard from "../assets/Battle of Waldo/battle_of_waldo_char_3.png";
-import odlaw from "../assets/Battle of Waldo/battle_of_waldo_char_4.png";
+import battleOfWaldo from "../assets/Battle_of_Waldo/battle_of_waldo.jpeg";
+import waldo from "../assets/Battle_of_Waldo/battle_of_waldo_char_1.png";
+import wilma from "../assets/Battle_of_Waldo/battle_of_waldo_char_2.png";
+import wizard from "../assets/Battle_of_Waldo/battle_of_waldo_char_3.png";
+import odlaw from "../assets/Battle_of_Waldo/battle_of_waldo_char_4.png";
 
 const levels = [
   {
@@ -150,7 +150,7 @@ const levels = [
   },
   {
     id: 4,
-    name: "Denny's, Japan",
+    name: "Dennys Japan",
     difficulty: "Medium",
     image: dennys,
     source_url:
