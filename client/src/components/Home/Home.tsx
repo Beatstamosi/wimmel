@@ -31,7 +31,9 @@ function Home() {
           </p>
         </div>
       </div>
-      <p className={style.spotterCall}>Can you become the ultimate spotter? Ready, set, find!</p>
+      <p className={style.spotterCall}>
+        Can you become the ultimate spotter? Ready, set, find!
+      </p>
     </div>
   );
 }
