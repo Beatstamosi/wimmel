@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import levels from "../../utils/levels";
 import PlayBar from "./PlayBar.jsx";
 import style from "./Play.module.css";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 function Play() {
   const { levelName } = useParams();
@@ -34,7 +35,17 @@ function Play() {
 
       {/* Content that scrolls */}
       <div className={style.imageWrapper}>
-        <img src={level.image} alt="" className={style.imagePlay} />
+        <TransformWrapper
+          wheel={{ disabled: true }} // disables scroll zoom
+          pinch={{ disabled: false }} // keep pinch-zoom for touch devices
+          doubleClick={{ step: 1, mode: "toggle" }}
+          minScale={1}
+          maxScale={4}
+        >
+          <TransformComponent>
+            <img src={level.image} alt="" className={style.imagePlay} />
+          </TransformComponent>
+        </TransformWrapper>
       </div>
     </main>
   );

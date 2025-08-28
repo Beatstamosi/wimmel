@@ -30,6 +30,14 @@ function Home() {
           <div className={style.step}>
             <span className={style.stepNumber}>4</span>
             <p className={style.stepText}>
+              Double Click to zoom in & out. 
+              Hold left mouse to navigate around image.
+            </p>
+          </div>
+
+          <div className={style.step}>
+            <span className={style.stepNumber}>5</span>
+            <p className={style.stepText}>
               Beat the high score by finishing as fast as possible!
             </p>
           </div>

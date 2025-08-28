@@ -1,5 +1,6 @@
 main {
   background-color: var(--color-navbar-bg);
+  width: 100%;
 }
 
 .charWrapper {
@@ -38,11 +39,13 @@ main {
 .imagePlay {
   display: block;
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
   cursor: pointer;
 }
 
 .imageWrapper {
   background-color: white;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
