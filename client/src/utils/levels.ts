@@ -78,7 +78,7 @@ const levels = [
   },
   {
     id: 2,
-    name: "What is New York?",
+    name: "What is New York",
     difficulty: "Easy",
     image: whatIsNewYork,
     source_url:

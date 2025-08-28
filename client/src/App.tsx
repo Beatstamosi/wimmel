@@ -7,7 +7,9 @@ function App() {
   return (
     <div className={style.pageWrapper}>
       <NavBar />
-      <Outlet />
+      <div className={style.outletContent}>
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

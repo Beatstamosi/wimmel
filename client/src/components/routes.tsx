@@ -1,6 +1,7 @@
 import App from "../App";
 import ErrorPage from "./ErrorPage/ErrorPage.jsx";
 import Home from "./Home/Home.jsx";
+import Play from "./Play/Play.js";
 
 const routes = [
   {
@@ -11,6 +12,10 @@ const routes = [
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/play/:levelName",
+        element: <Play />,
       },
     ],
   },

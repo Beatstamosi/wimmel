@@ -1,0 +1,21 @@
+.playBarWrapper {
+  background-color: var(--color-navbar-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: white;
+}
+
+.artist {
+  text-decoration: none;
+  color: white;
+}
+
+.timerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
