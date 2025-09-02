@@ -4,8 +4,11 @@ import PlayBar from "./PlayBar.jsx";
 import style from "./Play.module.css";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { useRef, useState } from "react";
+import type { CharacterTag } from "../../types/LevelType.js";
 
 function Play() {
+  const [showPopUpNoMatch, setShowPopUpNoMatch] = useState(false);
+  const [won, setWon] = useState(false);
   const { levelName } = useParams();
   const level = levels.find((lvl) => lvl.name === levelName);
   const updatedCharacters = level?.characters.map((char) => ({
@@ -17,7 +20,13 @@ function Play() {
   const imageRef = useRef(null);
   const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
   const mouseDownPosRef = useRef<{ x: number; y: number } | null>(null);
-  const [showPopUpNoMatch, setShowPopUpNoMatch] = useState(false);
+
+  const checkForWinner = (copyCharacters: CharacterTag[]) => {
+    if (copyCharacters?.every((char) => char.tagged)) {
+      console.log("You win!");
+      setWon(true);
+    }
+  };
 
   const checkCharacterHit = (nativeX: number, nativeY: number) => {
     let hit = false;
@@ -33,6 +42,7 @@ function Play() {
         char.tagged = true;
         hit = true;
         setCharacters(copyChar);
+        checkForWinner(copyChar);
       }
     });
 
@@ -89,6 +99,7 @@ function Play() {
 
   return (
     <main>
+      {won ? <div>You won!</div> : null}
       {/* Static level/artist/timer bar */}
       <PlayBar
         levelName={level.name}
