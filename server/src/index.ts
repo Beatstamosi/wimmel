@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import "./config/passport.js";
+import leaderboardRouter from "./routes/leaderbordRouter.js";
 
 // Give access to environment variables
 dotenv.config();
@@ -27,7 +28,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Routes
-
+app.use("/leaderboard", leaderboardRouter);
 
 // Serve static files in production
 if (process.env.NODE_ENV === "production") {

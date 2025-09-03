@@ -139,9 +139,9 @@ function Play() {
             <span>{char.name}</span>
           </div>
         ))}
-        {showPopUpNoMatch ? (
+        {showPopUpNoMatch && (
           <div className={style.popUpNoMatch}>No match - Try again!</div>
-        ) : null}
+        )}
       </div>
 
       {/* Content that scrolls */}

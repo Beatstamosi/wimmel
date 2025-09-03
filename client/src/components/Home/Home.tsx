@@ -30,8 +30,8 @@ function Home() {
           <div className={style.step}>
             <span className={style.stepNumber}>4</span>
             <p className={style.stepText}>
-              Double Click to zoom in & out. 
-              Hold left mouse to navigate around image.
+              Double Click to zoom in & out. Hold down left mouse to navigate
+              around image.
             </p>
           </div>
 
@@ -42,9 +42,6 @@ function Home() {
             </p>
           </div>
         </div>
-        <p className={style.spotterCall}>
-          Can you become the ultimate spotter? Ready, set, find!
-        </p>
       </div>
 
       <div className={style.levelGrid}>
