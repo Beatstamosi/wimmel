@@ -5,9 +5,17 @@ interface PlayBarProps {
   levelName: string;
   artist: string;
   source_url: string;
+  minutes: number;
+  seconds: number;
 }
 
-function PlayBar({ levelName, artist, source_url }: PlayBarProps) {
+function PlayBar({
+  levelName,
+  artist,
+  source_url,
+  minutes,
+  seconds,
+}: PlayBarProps) {
   return (
     <div className={style.playBarWrapper}>
       <h2>
@@ -24,7 +32,10 @@ function PlayBar({ levelName, artist, source_url }: PlayBarProps) {
 
       <div className={style.timerWrapper}>
         <MdOutlineTimer color="white" size="1.5em" />
-        <p>00:10</p>
+        <p className={style.timer}>
+          {minutes.toString().padStart(2, "0")}:
+          {seconds.toString().padStart(2, "0")}
+        </p>
       </div>
     </div>
   );
