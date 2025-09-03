@@ -5,6 +5,8 @@ import style from "./Play.module.css";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { useRef, useState } from "react";
 import type { CharacterTag } from "../../types/LevelType.js";
+import useDialog from "../Dialog/useDialog.js";
+import DialogSubmitScore from "../Dialog/DialogSubmitScore.js";
 
 function Play() {
   const [showPopUpNoMatch, setShowPopUpNoMatch] = useState(false);
@@ -25,6 +27,7 @@ function Play() {
     if (copyCharacters?.every((char) => char.tagged)) {
       console.log("You win!");
       setWon(true);
+      openDialog();
     }
   };
 
@@ -95,11 +98,23 @@ function Play() {
     }
   };
 
+  // Submit Score Pop Up
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const { isOpen, openDialog, closeDialog } = useDialog(dialogRef);
+
   if (!level) return null;
 
   return (
     <main>
-      {won ? <div>You won!</div> : null}
+      {won && (
+        <DialogSubmitScore
+          dialogRef={dialogRef}
+          closeDialog={closeDialog}
+          isOpen={isOpen}
+          levelName={levelName!}
+        />
+      )}
+
       {/* Static level/artist/timer bar */}
       <PlayBar
         levelName={level.name}

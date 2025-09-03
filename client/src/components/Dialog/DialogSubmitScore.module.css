@@ -1,0 +1,68 @@
+/* Style for the <dialog> element */
+dialog {
+  padding: 2rem;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  background-color: var(--color-navbar-bg);
+  color: white;
+  font-family: inherit;
+  width: min(90%, 400px);
+  text-align: center;
+  position: fixed; /* Ensure it stays in viewport center */
+  z-index: 9999;
+  border: 2px solid var(--color-button-hover-text);
+}
+
+/* Optional backdrop for <dialog> when open */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Optional inner content styling */
+.dialogTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.wrapperButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialogButton,
+.dialogButtonCancel {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: var(--color-button-hover-text);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dialogButtonCancel {
+  background-color: white;
+  color: black;
+}
+
+.dialogButton:hover {
+  background-color: #fff;
+  color: var(--color-navbar-bg);
+}
+
+input, label {
+    font-size: 1.2em;
+}
+
+input {
+    padding: 5px 10px;
+}
+
+dialog p {
+    font-weight: bold;
+}
