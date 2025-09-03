@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function useDialog(dialogRef: React.RefObject<HTMLDialogElement | null>) {
+  const [showPopUp, setShowPopUp] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -16,7 +17,15 @@ function useDialog(dialogRef: React.RefObject<HTMLDialogElement | null>) {
     navigate("/");
   };
 
-  return { isOpen, openDialog, closeDialog };
+  const triggerDialog = () => {
+    setShowPopUp(true);
+
+    setTimeout(() => {
+      setShowPopUp(false);
+    }, 1200);
+  };
+
+  return { isOpen, openDialog, closeDialog, showPopUp, triggerDialog };
 }
 
 export default useDialog;
