@@ -10,6 +10,7 @@ type DialogSubmitScoreProps = {
   sessionRef: React.MutableRefObject<null>;
   minutesFinalScore: number;
   secondsFinalScore: number;
+  levelName: string;
 };
 
 function DialogSubmitScore({
@@ -19,6 +20,7 @@ function DialogSubmitScore({
   sessionRef,
   minutesFinalScore,
   secondsFinalScore,
+  levelName,
 }: DialogSubmitScoreProps) {
   const [name, setName] = useState("");
   const navigate = useNavigate();
@@ -43,7 +45,7 @@ function DialogSubmitScore({
       );
 
       if (res.ok) {
-        navigate("/");
+        navigate(`/leaderboards/${levelName}`);
       } else {
         throw new Error("Server Error submitting highscore");
       }

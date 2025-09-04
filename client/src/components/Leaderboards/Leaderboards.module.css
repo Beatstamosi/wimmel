@@ -1,0 +1,128 @@
+.leaderboardsWrapper {
+  padding: 2rem;
+  background-color: white;
+  color: var(--color-text-main);
+  margin-bottom: 50px;
+}
+
+.leaderboardsWrapper h2 {
+  font-size: 2rem;
+  color: var(--color-navbar-bg);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.selectWrapper {
+  margin-bottom: 2rem;
+}
+
+.selectWrapper label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.selectWrapper select {
+  padding: 0.5rem;
+  border: 2px solid var(--color-background);
+  border-radius: 4px;
+  background-color: var(--color-card-bg);
+  color: var(--color-text-main);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-card-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-background);
+}
+
+.table th {
+  background-color: var(--color-navbar-bg);
+  color: white;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tr:nth-child(1), .table tr:nth-child(2), .table tr:nth-child(3) {
+    font-weight: bold;
+}
+
+.table tr:nth-child(3) {
+    border-bottom: 2px solid var(--color-navbar-bg);
+}
+
+.noScores {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.playLink {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-navbar-bg);
+  color: var(--color-button-primary-text);
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.playLink:hover {
+  background-color: var(--color-button-hover-bg);
+  color: var(--color-button-hover-text);
+}
+
+.tableWrapper {
+  flex: 1;
+  overflow-y: scroll;
+  border-radius: 6px;
+  overflow-x: auto; /* Enable horizontal scroll on mobile */
+}
+
+.playBtnWrapper {
+  margin-bottom: 10px;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .leaderboardsWrapper {
+    padding: 1rem;
+  }
+
+  .selectWrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .selectWrapper select {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 0.5rem;
+  }
+
+  .table {
+    min-width: 500px;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .playLink {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}

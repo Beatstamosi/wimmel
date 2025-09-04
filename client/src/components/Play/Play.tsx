@@ -70,13 +70,14 @@ function Play() {
     useDialog(dialogRef);
 
   // Set up game instance
-  const { checkCharacterHit, won, minutesFinalScore, secondsFinalScore } = useGameLogic(
-    openDialog,
-    setCharacters,
-    triggerDialog,
-    characters,
-    sessionRef
-  );
+  const { checkCharacterHit, won, minutesFinalScore, secondsFinalScore } =
+    useGameLogic(
+      openDialog,
+      setCharacters,
+      triggerDialog,
+      characters,
+      sessionRef
+    );
 
   // UI Timer
   const { start, stop, minutes, seconds } = useTimer();
@@ -90,9 +91,6 @@ function Play() {
     if (won) stop();
   }, [won, stop]);
 
-  
-  // PASS ID TO DIALOGSUBMITSCORE TO PASS TO BACKEND WHEN SUBMITTING SCORE
-
   if (!level) return null;
 
   return (
@@ -105,6 +103,7 @@ function Play() {
           sessionRef={sessionRef}
           minutesFinalScore={minutesFinalScore}
           secondsFinalScore={secondsFinalScore}
+          levelName={levelName!}
         />
       )}
 

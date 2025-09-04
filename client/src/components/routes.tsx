@@ -2,6 +2,7 @@ import App from "../App";
 import ErrorPage from "./ErrorPage/ErrorPage.jsx";
 import Home from "./Home/Home.jsx";
 import Play from "./Play/Play.js";
+import Leaderboards from "./Leaderboards/Leaderboards.js";
 
 const routes = [
   {
@@ -16,6 +17,10 @@ const routes = [
       {
         path: "/play/:levelName",
         element: <Play />,
+      },
+      {
+        path: "/leaderboards/:levelName",
+        element: <Leaderboards />,
       },
     ],
   },

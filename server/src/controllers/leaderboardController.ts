@@ -89,7 +89,7 @@ const getLeaderboardForLevel = async (req: Request, res: Response) => {
   try {
     const entries = await prisma.leaderboard.findMany({
       where: {
-        levelName: req.body.levelName,
+        levelName: req.params.levelName,
       },
     });
     res.status(200).json({ entries });
