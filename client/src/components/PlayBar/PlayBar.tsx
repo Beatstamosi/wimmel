@@ -1,5 +1,5 @@
 import style from "./PlayBar.module.css";
-import { MdOutlineTimer } from "react-icons/md";
+import Timer from "../Timer/Timer.jsx";
 
 interface PlayBarProps {
   levelName: string;
@@ -30,13 +30,7 @@ function PlayBar({
         </a>
       </h2>
 
-      <div className={style.timerWrapper}>
-        <MdOutlineTimer color="white" size="1.5em" />
-        <p className={style.timer}>
-          {minutes.toString().padStart(2, "0")}:
-          {seconds.toString().padStart(2, "0")}
-        </p>
-      </div>
+      <Timer minutes={minutes} seconds={seconds} />
     </div>
   );
 }

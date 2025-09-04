@@ -48,7 +48,10 @@ const logEndTime = async (req: Request, res: Response) => {
     }
 
     const durationMs = calculateDuration(entry);
-    res.status(200).json({ durationMs });
+    const minutes = Math.floor(durationMs / 60000);
+    const seconds = Math.floor((durationMs % 60000) / 1000);
+
+    res.status(200).json({ minutes, seconds });
   } catch (e) {
     handleError(e, res);
   }

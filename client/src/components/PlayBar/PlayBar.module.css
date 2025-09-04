@@ -14,17 +14,6 @@
   color: white;
 }
 
-.timerWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.timer {
-  font-size: 1.2em;
-}
-
 @media (max-width: 768px) {
 
 }

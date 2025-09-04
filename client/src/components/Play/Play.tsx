@@ -31,17 +31,51 @@ function Play() {
     updatedCharacters ?? []
   );
 
+  // Pass starting time to backend; retrieve session Id and use to log other info to db
+  const sessionRef = useRef(null);
+
+  useEffect(() => {
+    const logStartTime = async () => {
+      try {
+        const res = await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}/leaderboard/start-time`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              levelName,
+              levelId: level?.id,
+            }),
+          }
+        );
+
+        const data = await res.json();
+
+        if (res.ok) {
+          sessionRef.current = data.entryId;
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    logStartTime();
+  }, [levelName, level?.id]);
+
   // Submit Score Pop Up
   const dialogRef = useRef<HTMLDialogElement>(null);
   const { isOpen, openDialog, closeDialog, showPopUp, triggerDialog } =
     useDialog(dialogRef);
 
   // Set up game instance
-  const { checkCharacterHit, won } = useGameLogic(
+  const { checkCharacterHit, won, minutesFinalScore, secondsFinalScore } = useGameLogic(
     openDialog,
     setCharacters,
     triggerDialog,
-    characters
+    characters,
+    sessionRef
   );
 
   // UI Timer
@@ -56,8 +90,7 @@ function Play() {
     if (won) stop();
   }, [won, stop]);
 
-  // ON LOAD API CALL TO PASS STARTING TIME --> STORE ID as ref --> pass into useGameLogic
-  // INSIDE GAME LOGIC: ON WON === TRUE API CALL TO LOG END TIME --> GET ACCESS TO HIGHSCORE TIME --> PASS INTO DIALOG
+  
   // PASS ID TO DIALOGSUBMITSCORE TO PASS TO BACKEND WHEN SUBMITTING SCORE
 
   if (!level) return null;
@@ -69,7 +102,9 @@ function Play() {
           dialogRef={dialogRef}
           closeDialog={closeDialog}
           isOpen={isOpen}
-          levelName={levelName!}
+          sessionRef={sessionRef}
+          minutesFinalScore={minutesFinalScore}
+          secondsFinalScore={secondsFinalScore}
         />
       )}
 

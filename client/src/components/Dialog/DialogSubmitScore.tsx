@@ -1,39 +1,43 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import levels from "../../utils/levels";
+import Timer from "../Timer/Timer.jsx";
 import style from "./DialogSubmitScore.module.css";
 
 type DialogSubmitScoreProps = {
   dialogRef: React.RefObject<HTMLDialogElement>;
   isOpen: boolean;
   closeDialog: () => void;
-  levelName: string;
+  sessionRef: React.MutableRefObject<null>;
+  minutesFinalScore: number;
+  secondsFinalScore: number;
 };
 
 function DialogSubmitScore({
   dialogRef,
   isOpen,
   closeDialog,
-  levelName,
+  sessionRef,
+  minutesFinalScore,
+  secondsFinalScore,
 }: DialogSubmitScoreProps) {
   const [name, setName] = useState("");
-  const level = levels.find((lvl) => lvl.name === levelName);
   const navigate = useNavigate();
 
-  const handleSubmitScore = async () => {
+  const handleSubmitScore = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/highscore/submit`,
+        `${import.meta.env.VITE_API_BASE_URL}/leaderboard/submit-highscore`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-type": "application/json",
           },
           credentials: "include",
           body: JSON.stringify({
-            name,
-            levelName,
-            levelId: level?.id,
+            entryId: sessionRef.current,
+            username: name,
           }),
         }
       );
@@ -50,9 +54,10 @@ function DialogSubmitScore({
 
   return (
     <dialog open={isOpen} onClose={closeDialog} ref={dialogRef}>
-      <form onSubmit={handleSubmitScore}>
+      <form onSubmit={(e) => handleSubmitScore(e)}>
         <h2 className={style.dialogTitle}>Congratulations!</h2>
         <p>Submit your Score</p>
+        <Timer minutes={minutesFinalScore} seconds={secondsFinalScore} />
         <label htmlFor="name">Name: </label>
         <input
           type="text"
