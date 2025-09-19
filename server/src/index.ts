@@ -5,8 +5,6 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import "./config/passport.js";
 import leaderboardRouter from "./routes/leaderbordRouter.js";
-import nodeCron from "node-cron";
-import prisma from "./lib/prisma.js";
 
 // Give access to environment variables
 dotenv.config();
@@ -31,22 +29,6 @@ if (process.env.NODE_ENV === "development") {
 
 // Routes
 app.use("/leaderboard", leaderboardRouter);
-
-// Clean up empty submissions to database
-nodeCron.schedule("*/30 * * * *", async () => {
-  const oneHourAgo = new Date(Date.now() - 1000 * 60 * 60);
-
-  try {
-    await prisma.leaderboard.deleteMany({
-      where: {
-        username: null,
-        startTime: { lt: oneHourAgo },
-      },
-    });
-  } catch (e) {
-    console.log("Error cleaning up database: ", e);
-  }
-});
 
 // Serve static files in production
 if (process.env.NODE_ENV === "production") {

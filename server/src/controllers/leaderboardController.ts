@@ -79,6 +79,8 @@ const submitScore = async (req: Request, res: Response) => {
       },
     });
 
+    await cleanUpDB();
+
     res.sendStatus(200);
   } catch (e) {
     handleError(e, res);
@@ -102,6 +104,22 @@ function calculateDuration(entry: Entry) {
   return (
     new Date(entry.endTime!).getTime() - new Date(entry.startTime).getTime()
   );
+}
+
+// Clean up empty submissions to database
+async function cleanUpDB() {
+  const oneHourAgo = new Date(Date.now() - 1000 * 60 * 60);
+
+  try {
+    await prisma.leaderboard.deleteMany({
+      where: {
+        username: null,
+        startTime: { lt: oneHourAgo },
+      },
+    });
+  } catch (e) {
+    console.log("Error cleaning up database: ", e);
+  }
 }
 
 export { logStartTime, logEndTime, submitScore, getLeaderboardForLevel };
