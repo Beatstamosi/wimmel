@@ -3,8 +3,9 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import "./config/passport.js";
+import "./config/passport.ts";
 import leaderboardRouter from "./routes/leaderbordRouter.js";
+import { Request, Response } from "express";
 
 // Give access to environment variables
 dotenv.config();
@@ -34,7 +35,7 @@ app.use("/leaderboard", leaderboardRouter);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/dist")));
 
-  app.get("*", (req, res) => {
+  app.get("*", (req: Request, res: Response) => {
     res.sendFile(path.join(__dirname, "../client/dist/index.html"));
   });
 }
