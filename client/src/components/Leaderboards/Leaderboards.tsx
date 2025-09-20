@@ -105,9 +105,6 @@ function Leaderboards() {
         <div className={style.noScores}>
           <h2>No scores yet ☹️</h2>
           <p>Be the first one to submit!</p>
-          <Link className={style.playLink} to={`/play/${levelName}`}>
-            Play {levelName}
-          </Link>
         </div>
       )}
     </div>
