@@ -3,7 +3,6 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import "./config/passport.ts";
 import leaderboardRouter from "./routes/leaderbordRouter.js";
 import { Request, Response } from "express";
 
