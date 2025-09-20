@@ -17,11 +17,11 @@ const __dirname = path.dirname(__filename);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Enable CORS only in dev
-if (process.env.NODE_ENV === "development") {
+// Enable CORS in dev AND when CLIENT_URL is provided (Railway production)
+if (process.env.NODE_ENV === "development" || process.env.CLIENT_URL) {
   app.use(
     cors({
-      origin: "http://localhost:5173",
+      origin: process.env.CLIENT_URL || "http://localhost:5173",
       credentials: true,
       methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     })
@@ -31,10 +31,9 @@ if (process.env.NODE_ENV === "development") {
 // Routes
 app.use("/leaderboard", leaderboardRouter);
 
-// Serve static files in production
-if (process.env.NODE_ENV === "production") {
+// Serve static files only for "single service" deployment
+if (process.env.NODE_ENV === "production" && !process.env.CLIENT_URL) {
   app.use(express.static(path.join(__dirname, "../client/dist")));
-
   app.get("*", (req: Request, res: Response) => {
     res.sendFile(path.join(__dirname, "../client/dist/index.html"));
   });
