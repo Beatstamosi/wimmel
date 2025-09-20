@@ -9,9 +9,9 @@
     "start": "node dist/index.js",
     "prisma:generate": "prisma generate",
     "migrate:deploy": "prisma migrate deploy",
-    "create-tables": "node --loader ts-node/esm src/db/createTables.ts"
+    "create-tables": "node --loader ts-node/esm src/db/createTables.ts",
+    "postinstall": "prisma generate && npm run build"
   },
-  "postinstall": "prisma generate && npm run build",
   "keywords": [],
   "author": "",
   "license": "ISC",
