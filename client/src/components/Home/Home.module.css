@@ -1,4 +1,5 @@
-.homeWrapper, .welcomeTextWrapper {
+.homeWrapper,
+.welcomeTextWrapper {
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
@@ -57,5 +58,6 @@
 @media (min-width: 769px) {
   .homeWrapper {
     padding: 50px 100px;
+    background-color: white;
   }
 }
